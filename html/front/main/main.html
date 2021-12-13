@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LG디스커버리랩</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link rel="stylesheet" href="./../../../assets/styles/style.css" />
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/swiper@7/swiper-bundle.min.js"
+    ></script>
+    <script
+      defer
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script defer src="./../../../assets/scripts/main.js"></script>
+  </head>
+  <body onload="init()">
+    <div class="intro-container">
+      <!-- header -->
+      <div class="shown-bar header hidden">
+        <h1><a href="./html/front/main/main.html">LG디스커버리랩</a></h1>
+        <nav class="hamburger-menu">
+          <div class="top-bun"></div>
+          <div class="meat"></div>
+          <div class="bottom-bun"></div>
+        </nav>
+      </div>
+      <!-- //header -->
+
+      <!-- scene1 -->
+      <section id="scene1">
+        <div class="line">
+          <div class="line-large"></div>
+          <div class="line-medium"></div>
+          <div class="line-small"></div>
+        </div>
+        <div class="drag-area">
+          <img
+            src="./../../../assets/images/intro/img1.png"
+            alt="LG Discovery Lab"
+            id="img-drag"
+          />
+          <div
+            class="drag-pseudo"
+            id="drag-action"
+            ondragstart="dragStart(event)"
+            ondrag="dragging(event)"
+            draggable="true"
+            ondragleave="dragleave()"
+            ontouchstart="touchStart(event)"
+            ontouchmove="touchMove(event)"
+            ontouchend="touchEnd()"
+          ></div>
+          <div class="drag-text">
+            <div class="arrow-text">Drag to discover</div>
+          </div>
+        </div>
+      </section>
+      <!-- //scene1 -->
+
+      <!-- scene2 -->
+      <section id="scene2" style="display: none">
+        <div class="section section-home">
+          <div class="split background-animation" id="split">
+            <div
+              class="split-item introduce"
+              id="introduce-scene"
+              onClick="selectScene('introduce')"
+            >
+              <div class="split-item-contents">
+                <h2>Introduce</h2>
+                <div class="more-view">more view</div>
+                <div class="background"></div>
+              </div>
+            </div>
+            <div
+              class="split-item program"
+              id="program-scene"
+              onClick="selectScene('program')"
+            >
+              <div class="split-item-contents">
+                <h2>Program</h2>
+                <div class="more-view">more view</div>
+                <div class="background"></div>
+              </div>
+            </div>
+            <button
+              class="play-button"
+              data-can-touch="true"
+              title="Click to play"
+            >
+              <svg class="play-button-circle">
+                <circle cx="50%" cy="50%" r="48%"></circle>
+              </svg>
+            </button>
+          </div>
+          <ul class="shown-bar slide-nav hidden">
+            <li>Introduce</li>
+            <li>Program</li>
+            <li>Location</li>
+          </ul>
+        </div>
+      </section>
+      <!-- //scene2 -->
+      <!-- quick-menu -->
+      <div id="quick-menu" style="display: none">
+        <div class="btn" title="Quick-menu">
+          <span>Quick-menu</span>
+        </div>
+        <ul>
+          <li><a href="#">서울예약</a></li>
+          <li><a href="#">부산예약</a></li>
+          <li><a href="#">챗봇</a></li>
+        </ul>
+      </div>
+      <!-- //quick-menu -->
+    </div>
+
+    <template id="template-contents-introduce">
+      <div class="section">
+        <p class="phrase-main">두번째Introduce Introduce Introduce Introduce</p>
+        <p class="phrase-sub">
+          테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트 테스트
+          테스트 테스트 테스트 테스트 테스트 테스트
+        </p>
+      </div>
+      <div class="section">인트로듀스 세번째 영역</div>
+      <div class="section">인트로듀스 네번째 영역</div>
+      <div class="section">인트로듀스 다섯번째 영역</div>
+    </template>
+
+    <template id="template-contents-program">
+      <div class="section section-phrase layout-half">
+        <div class="layout-half-first">
+          <p class="phrase-main">
+            We discover<br />The fun of AI,<br />
+            Design the future<br />Through the
+            <span class="pink-dot">Lab</span>
+          </p>
+        </div>
+        <div class="layout-half-last">
+          <img src="./../../../assets/images/img-main-program-contents.png" />
+          <p class="phrase-sub">
+            청소년이 이해하고 자신의 가능성을 발견하는<br />
+            <span class="text-highlight">한 차원 다른 세상</span>을 미리 경험할
+            수 있습니다.
+          </p>
+        </div>
+      </div>
+      <div class="section carousel-cinema">
+        <div class="carousel-border top">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1951 122"
+            class="arch-background"
+          >
+            <path
+              d="M959,116.5c-266.6,0-513.2-31.5-673.1-58C112.6,29.8,1,0.8-0.1,0.5l0.3-1c1.1,0.3,112.7,29.3,286,58 c159.9,26.5,406.4,58,672.9,58s522-31.5,689.4-58c181.4-28.7,301.3-57.7,302.5-58l0.2,1c-1.2,0.3-121.1,29.3-302.5,58 C1481.1,85,1225.6,116.5,959,116.5z"
+              class="path"
+            ></path>
+            <path
+              d="M1951.2-0.5v1l-0.2-1H1951.2z M286.2,57.5c159.9,26.5,406.4,58,672.9,58s522-31.5,689.4-58 c181.4-28.7,301.3-57.7,302.5-58H0.2C1.3-0.2,112.9,28.8,286.2,57.5z"
+              class="bg"
+            ></path>
+          </svg>
+        </div>
+        <div class="carousel-grab">
+          <div class="swiper-container" id="carousel-grab">
+            <ul class="swiper-wrapper">
+              <li class="swiper-slide">
+                <div class="image">
+                  <img
+                    src="./../../../assets/images/img-main-program-cinema-chatbot.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <p>Chatbot</p>
+                  <span class="text-sub">언어지능</span>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="image">
+                  <img
+                    src="./../../../assets/images/img-main-program-cinema-robot.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <p>Robot</p>
+                  <span class="text-sub">로봇지능연구소</span>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="image">
+                  <img
+                    src="./../../../assets/images/img-main-program-cinema-mrc.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <p>MRC</p>
+                  <span class="text-sub">언어지능과 MRC</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="carousel-border bottom">
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1951 122"
+            class="arch-background"
+          >
+            <path
+              d="M992.05,5c266.6,0,513.2,31.5,673.1,58c173.3,28.7,284.9,57.7,286,58l-0.3,1c-1.1-0.3-112.7-29.3-286-58 c-159.9-26.5-406.4-58-672.9-58s-522,31.5-689.4,58c-181.4,28.7-301.3,57.7-302.5,58l-0.2-1c1.2-0.3,121.1-29.3,302.5-58 C469.95,36.5,725.45,5,992.05,5z"
+              class="path"
+            ></path>
+            <path
+              d="M-0.15,122v-1l0.2,1H-0.15z M1664.85,64c-159.9-26.5-406.4-58-672.9-58s-522,31.5-689.4,58 c-181.4,28.7-301.3,57.7-302.5,58h1950.8C1949.75,121.7,1838.15,92.7,1664.85,64z"
+              class="bg"
+            ></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="section branch">
+        <ul>
+          <li class="seoul">
+            <a href="./seoul.html"
+              ><span class="text"><span class="arrow"></span>Seoul</span></a
+            >
+          </li>
+          <li class="busan">
+            <a href="./busan.html"
+              ><span class="text"><span class="arrow"></span>Busan</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </template>
+
+    <template id="template-contents-location">
+      <div class="section">
+        <p class="phrase-main">
+          Location Location Location Location Location Location
+        </p>
+        <p class="phrase-sub">
+          두번째 로케이션테스트 로케이션테스트 로케이션테스트 로케이션테스트
+          로케이션테스트 로케이션테스트 로케이션테스트 로케이션테스트
+          로케이션테스트 로케이션테스트 로케이션테스트
+        </p>
+      </div>
+      <div class="section">로케이션 세번째 영역</div>
+      <div class="section">로케이션 네번째 영역</div>
+    </template>
+
+    <template id="template-footer">
+      <footer class="section footer fp-auto-height">
+        <div class="footer-contents">
+          <ul class="menu">
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인정보취급방침</a></li>
+            <li><a href="#">영어소개</a></li>
+            <li><a href="#">1:1문의</a></li>
+          </ul>
+          <div class="footer-links">
+            <div class="select-underline">
+              <select id="family-site" name="family-site">
+                <option selected>Family Site</option>
+                <option value="a">A Site</option>
+                <option value="b">B Site</option>
+                <option value="c">C Site</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="footer-contents">
+          <div class="footer-copyright">
+            <span class="logo">LG Discovery Lab</span>
+            <span>&copy; 2021 LG DISCOVERY LAB.</span>
+            <span class="auth">All rights reserved.</span>
+          </div>
+          <div id="btn-top" onClick="goToTop()">
+            <span class="arrow"><span>Go to Top</span></span>
+          </div>
+        </div>
+      </footer>
+    </template>
+  </body>
+</html>
