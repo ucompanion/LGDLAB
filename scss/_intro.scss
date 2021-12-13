@@ -1,0 +1,484 @@
+// intro
+
+// scene1
+#scene1 {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  background-color: #121212;
+
+  .line {
+    div {
+      position: absolute;
+      background: {
+        repeat: no-repeat;
+        position: center;
+        size: cover;
+      }
+      animation: {
+        timing-function: linear;
+        iteration-count: infinite;
+      }
+      transform-origin: center;
+    }
+
+    &-large {
+      $size: 148.148vh;
+      top: calc(50% - #{$size} / 2);
+      left: calc(50% - #{$size} / 2);
+      width: $size;
+      height: $size;
+      background: {
+        image: image-path('intro/img-line-large.png');
+      }
+      animation: {
+        name: circle;
+        duration: 8s;
+      }
+    }
+    &-medium {
+      $size: 92.593vh;
+      top: calc(50% - #{$size} / 2);
+      left: calc(50% - #{$size} / 2);
+      width: $size;
+      height: $size;
+      background: {
+        image: image-path('intro/img-line-medium.png');
+      }
+      animation: {
+        name: circle-opposite;
+        duration: 9s;
+      }
+    }
+    &-small {
+      $size: 84.259vh;
+      top: calc(50% - #{$size} / 2);
+      left: calc(50% - #{$size} / 2);
+      width: $size;
+      height: $size;
+      background: {
+        image: image-path('intro/img-line-small.png');
+      }
+      animation: {
+        name: circle;
+        duration: 10s;
+      }
+    }
+  }
+  .drag {
+    &-area {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: grab;
+
+      img {
+        $size: 74.167vh;
+        width: $size;
+        height: $size;
+        max-width: unset;
+      }
+    }
+    &-pseudo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 99;
+    }
+
+    &-text {
+      $size: 17.493em;
+      position: absolute;
+      top: calc(50% - 0.786rem);
+      left: calc(50% - #{$size} / 3);
+      width: $size;
+      transform: translate(-50%, -50%);
+      animation: {
+        name: more-knock;
+        duration: 0.5s;
+        timing-function: ease-in;
+        iteration-count: infinite;
+        direction: alternate;
+      }
+
+      .arrow-text {
+        left: 0;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// scene2
+.split {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  cursor: pointer;
+
+  &-item {
+    flex: 1;
+    display: flex;
+    transition: {
+      duration: 1s;
+      timing-function: $timing-function1;
+    }
+    overflow: hidden;
+
+    &-contents {
+      position: relative;
+      min-width: 100vw;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: {
+        repeat: no-repeat;
+        position: center;
+        size: cover;
+      }
+      clip-path: circle(37.083vh at center);
+      color: #121212;
+    }
+
+    h2 {
+      position: absolute;
+      top: 50%;
+      font: {
+        size: 11.111vh;
+        family: $en-emphasis;
+      }
+      color: transparent;
+      text-transform: uppercase;
+      transform-origin: top left;
+      mix-blend-mode: difference;
+      z-index: 9;
+    }
+
+    &.introduce {
+      background-color: #121212;
+      color: #fff;
+
+      .background {
+        background-image: image-path('img-main-introduce.jpg');
+      }
+
+      h2 {
+        left: 4vw;
+        transform: rotate(270deg) translateX(-50%);
+        @include vendor-prefix(text-stroke, 0.003em #fff);
+        @include vendor-prefix(filter, revert(100%));
+      }
+    }
+
+    &.program {
+      justify-content: flex-end;
+      background-color: #fff;
+
+      .background {
+        background-image: image-path('img-main-program.jpg');
+      }
+
+      h2 {
+        left: calc(100vw - 4vw);
+        transform: rotate(90deg) translateX(-50%);
+        @include vendor-prefix(text-stroke, 0.008em #222);
+        @include vendor-prefix(filter, invert(100%));
+      }
+    }
+
+    &:hover {
+      flex: 5;
+
+      h2 {
+        background: {
+          repeat: repeat-x;
+          position: left bottom;
+          clip: text;
+        }
+        @include vendor-prefix(background-clip, text);
+        animation: {
+          name: fill-up;
+          duration: 2s;
+          timing-function: $timing-function3;
+          fill-mode: both;
+        }
+      }
+
+      .more-view {
+        animation: {
+          name: more-knock;
+          duration: 0.3s;
+          timing-function: ease-in;
+          iteration-count: infinite;
+          direction: alternate;
+        }
+      }
+
+      &.introduce {
+        h2 {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 300' preserveAspectRatio='xMinYMin meet' %3E%3Cpath d='M0,100 C400,200 400,10 800,100 L800,300 L0,300 Z' style='stroke: none; fill: %23fff' %3E%3C/path%3E%3C/svg%3E");
+        }
+      }
+
+      &.program {
+        h2 {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 300' preserveAspectRatio='xMinYMin meet' %3E%3Cpath d='M0,100 C400,200 400,10 800,100 L800,300 L0,300 Z' style='stroke: none; fill: %23111' %3E%3C/path%3E%3C/svg%3E");
+        }
+        .more-view {
+          animation-timing-function: ease-out;
+        }
+      }
+    }
+
+    &.program {
+      .more-view {
+        left: unset;
+        right: calc(17vw - 5em);
+        color: #121212;
+        mix-blend-mode: difference;
+        @include vendor-prefix(filter, invert(100%));
+
+        &::before {
+          left: calc(0.818em - 100%);
+          background-color: #414141;
+        }
+
+        &::after {
+          left: calc(1.273em - 100%);
+          border: {
+            left: none;
+            right: 0.455em solid #414141;
+          }
+        }
+      }
+    }
+    /* selected */
+    &.selected {
+      flex: auto;
+
+      .background {
+        clip-path: circle(200vw at center);
+      }
+
+      h2,
+      .more-view {
+        left: -40vw;
+        opacity: 0;
+      }
+
+      &.program {
+        h2 {
+          left: 140vw;
+        }
+        .more-view {
+          left: unset;
+          right: -40vw;
+        }
+      }
+    }
+    /* //selected */
+  }
+
+  &.background-animation {
+    .split-item {
+      &.selected {
+        .background {
+          transition: {
+            duration: 1s;
+            timing-function: $timing-function1;
+          }
+        }
+        h2,
+        .more-view {
+          transition: {
+            duration: 1s;
+            timing-function: ease-out;
+            delay: 0.3s;
+          }
+        }
+      }
+    }
+  }
+
+  &.shrunken {
+    .split-item {
+      .background {
+        filter: brightness(0.4);
+        transition: filter 2s;
+      }
+    }
+    .play-button {
+      transform: translate(-50%, calc(-50% - 4.63vh));
+      // top: calc(50% - 4.63vh);
+      transition: transform 2s $timing-function1;
+    }
+  }
+
+  /* play-button */
+  .play-button {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &-circle {
+      $size: 11vh;
+      width: $size;
+      height: $size;
+
+      circle {
+        stroke: #fff {
+          width: 2;
+          dasharray: 432, 432;
+          dashoffset: 0;
+        }
+        fill: transparent;
+      }
+    }
+
+    &::before {
+      @include pseudo-before;
+      top: calc(50% - 0.3vh);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: {
+        top: 0.6vh solid transparent;
+        left: 1.1vh solid #fff;
+        bottom: 0.6vh solid transparent;
+      }
+    }
+  }
+
+  &.ready {
+    .play-button {
+      display: block;
+      animation: {
+        name: fadeIn;
+        duration: 0.4s;
+        timing-function: $timing-function2;
+        direction: forwards;
+      }
+      circle {
+        animation: {
+          name: play-button-circle;
+          duration: 0.3s;
+          timing-function: $timing-function2;
+        }
+      }
+    }
+  }
+  /* //play-button */
+}
+
+// more-view-icon, intro-drag-text
+.arrow-text,
+.more-view {
+  position: absolute;
+  top: calc(50% - 0.5455em);
+  left: calc(17vw - 5em);
+  font: {
+    size: 0.857rem;
+    family: 'Archivo Black', sans-serif;
+  }
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 9;
+
+  &::before,
+  &::after {
+    @include pseudo-before;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    left: 100%;
+    width: 5em;
+    height: 0.182em;
+    margin: 0 0.818em;
+    background-color: #d0d0d0;
+  }
+
+  &::after {
+    right: -6em;
+    width: 0;
+    height: 0;
+    border: {
+      top: 0.455em solid transparent;
+      left: 0.455em solid #d0d0d0;
+      bottom: 0.455em solid transparent;
+      radius: 0.364em;
+    }
+  }
+}
+
+// Media Query Rule
+@media (max-width: 91.429rem) and (orientation: portrait) {
+  // #scene1
+  :root {
+    --intro-line-large: 125vw;
+    --intro-line-medium: 78.125vw;
+    --intro-line-small: 71.094vw;
+    --intro-image: 62.578vw;
+  }
+  #scene1 {
+    .line {
+      &-large {
+        top: calc(50% - var(--intro-line-large) / 2);
+        left: calc(50% - var(--intro-line-large) / 2);
+        width: var(--intro-line-large);
+        height: var(--intro-line-large);
+      }
+      &-medium {
+        top: calc(50% - var(--intro-line-medium) / 2);
+        left: calc(50% - var(--intro-line-medium) / 2);
+        width: var(--intro-line-medium);
+        height: var(--intro-line-medium);
+      }
+      &-small {
+        top: calc(50% - var(--intro-line-small) / 2);
+        left: calc(50% - var(--intro-line-small) / 2);
+        width: var(--intro-line-small);
+        height: var(--intro-line-small);
+      }
+    }
+    .drag {
+      &-area {
+        img {
+          width: var(--intro-image);
+          height: var(--intro-image);
+        }
+      }
+    }
+  }
+
+  // #scene2
+  .split {
+    &-item {
+      .background {
+        clip-path: circle(calc(var(--intro-image) / 2) at center);
+      }
+      h2 {
+        font: {
+          size: 10.156vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 34.286rem) {
+  .arrow-text,
+  .more-view {
+    font-size: 0.643rem;
+  }
+}

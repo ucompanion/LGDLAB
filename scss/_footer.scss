@@ -1,0 +1,100 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: {
+    top: 4.286rem;
+    right: $header-footer-side-padding;
+    bottom: 4.286rem;
+    left: $header-footer-side-padding;
+  }
+  border-top: 1px solid #eee;
+
+  &-contents {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 91.429rem; // 1280px
+
+    &:last-child {
+      align-items: flex-end;
+      margin: {
+        top: 0.714rem;
+        bottom: 0.714rem;
+      }
+    }
+    li {
+      a {
+        display: block;
+        padding: 0.75em 0;
+        font: {
+          size: 1.429rem;
+          weight: 600;
+        }
+      }
+    }
+  }
+
+  &-copyright {
+    color: #aaa;
+    letter-spacing: 0;
+
+    .logo {
+      display: none;
+    }
+  }
+  #btn-top {
+    $size: 2.571rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: $size;
+    height: $size;
+    border: {
+      width: 0.071em;
+      style: solid;
+      color: #000;
+      radius: 50%;
+    }
+    cursor: pointer;
+
+    .arrow {
+      $size: 0.571em;
+      position: absolute;
+      top: calc(50% - 0.357em);
+      left: calc(50% - 0.285em);
+      width: $size;
+      height: $size;
+      border: {
+        width: 0.071em 0.071em 0 0;
+        style: solid;
+        color: #000;
+      }
+      transform: rotate(-45deg);
+
+      &::before {
+        @include pseudo-before;
+        top: -0.071em;
+        right: 0;
+        width: 0.929em;
+        height: 0.071em;
+        background-color: #000;
+        transform: rotate(-45deg);
+        transform-origin: right top;
+      }
+      span {
+        font-size: 0;
+      }
+    }
+  }
+  &-links {
+    .select-underline {
+      width: 11.429em;
+      select {
+        letter-spacing: 0;
+      }
+    }
+  }
+}

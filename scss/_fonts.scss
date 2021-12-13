@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'MarkPro';
+  font-style: normal;
+  font-weight: normal;
+  src: font-path('MarkPro/MarkProBold.woff2') format('woff2'),
+    font-path('MarkPro/MarkProBold.woff') format('woff'),
+    font-path('MarkPro/MarkProBold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'LGSmart';
+  font-style: normal;
+  font-weight: 100;
+  src: font-path('LGSmart/LGSmHaTL.eot');
+  src: font-path('LGSmart/LGSmHaTL.eot?#iefix') format('embedded-opentype'),
+    font-path('LGSmart/LGSmHaTL.woff2') format('woff2'),
+    font-path('LGSmart/LGSmHaTL.woff') format('woff'),
+    font-path('LGSmart/LGSmHaTL.ttf') format('truetype'),
+    font-path('LGSmart/LGSmHaTL.svg#LGSmart/LGSmHaTL') format('svg');
+}
+
+@font-face {
+  font-family: 'LGSmart';
+  font-style: normal;
+  font-weight: 300;
+  src: font-path('LGSmart/LGSmHaTR.eot');
+  src: font-path('LGSmart/LGSmHaTR.eot?#iefix') format('embedded-opentype'),
+    font-path('LGSmart/LGSmHaTR.woff2') format('woff2'),
+    font-path('LGSmart/LGSmHaTR.woff') format('woff'),
+    font-path('LGSmart/LGSmHaTR.ttf') format('truetype'),
+    font-path('LGSmart/LGSmHaTR.svg#LGSmart/LGSmHaTR') format('svg');
+}
+
+@font-face {
+  font-family: 'LGSmart';
+  font-style: normal;
+  font-weight: 600;
+  src: font-path('LGSmart/LGSmHaTSB.eot');
+  src: font-path('LGSmart/LGSmHaTSB.eot?#iefix') format('embedded-opentype'),
+    font-path('LGSmart/LGSmHaTSB.woff2') format('woff2'),
+    font-path('LGSmart/LGSmHaTSB.woff') format('woff'),
+    font-path('LGSmart/LGSmHaTSB.ttf') format('truetype'),
+    font-path('LGSmart/LGSmHaTSB.svg#LGSmart/LGSmHaTSB') format('svg');
+}
+
+@font-face {
+  font-family: 'LGSmart';
+  font-style: normal;
+  font-weight: 700;
+  src: font-path('LGSmart/LGSmHaTB.eot');
+  src: font-path('LGSmart/LGSmHaTB.eot?#iefix') format('embedded-opentype'),
+    font-path('LGSmart/LGSmHaTB.woff2') format('woff2'),
+    font-path('LGSmart/LGSmHaTB.woff') format('woff'),
+    font-path('LGSmart/LGSmHaTB.ttf') format('truetype'),
+    font-path('LGSmart/LGSmHaTB.svg#LGSmart/LGSmHaTB') format('svg');
+}

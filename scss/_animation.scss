@@ -1,0 +1,135 @@
+// intro
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circle-opposite {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes more-knock {
+  0% {
+    transform: translateX(-0.455em);
+  }
+  100% {
+    transform: translateX(0.455em);
+  }
+}
+
+@keyframes fill-up {
+  0% {
+    background-size: 1.5em;
+  }
+  100% {
+    background-size: 5em;
+  }
+}
+
+@keyframes play-button-circle {
+  0% {
+    stroke-dashoffset: -432;
+  }
+  100% {
+    stroke-dashoffset: -864;
+  }
+}
+
+// header
+@keyframes burger-hover {
+  0% {
+    width: 100%;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+// main
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInleft {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flexWidth {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes flexHeight {
+  0% {
+    height: 100%;
+    top: 0;
+  }
+  100% {
+    height: 577px;
+    top: 130px;
+  }
+}

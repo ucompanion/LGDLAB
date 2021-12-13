@@ -1,0 +1,205 @@
+// Variable declarations
+// Path
+$asset-base-path: './..' !default;
+
+@function asset($type, $file) {
+  @return url($asset-base-path + '/' + $type + '/' + $file);
+}
+
+@function image-path($file) {
+  @return asset('images', $file);
+}
+
+@function font-path($file) {
+  @return asset('fonts', $file);
+}
+
+// Vendor-prefix
+@mixin vendor-prefix($name, $value) {
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$vendor}#{$name}: #{$value};
+  }
+}
+
+@mixin pseudo-before {
+  content: '';
+  position: absolute;
+  display: block;
+}
+
+// common variable style
+$header-footer-side-padding: 4.285rem;
+$en-emphasis: 'MarkPro', sans-serif;
+
+$timing-function1: cubic-bezier(0.4, 0, 0.2, 1);
+$timing-function2: cubic-bezier(0.6, 0.2, 0.6, 1);
+$timing-function3: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+
+$ico-calendar: image-path('ico-calendar.png');
+
+@mixin box-shadow {
+  box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.12);
+}
+// $box-shadow-modal: 0 5px 10px 2px rgb(0, 0, 0, 0.13);
+
+// half-half flex-layout
+@mixin layout-half-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > * {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
+@mixin text-highlight {
+  position: relative;
+  color: #fff;
+  z-index: 0;
+  &::before {
+    @include pseudo-before;
+    left: 0;
+    top: -10%;
+    width: 100%;
+    height: 120%;
+    background: #111;
+    z-index: -1;
+  }
+}
+
+// main
+@mixin main-ani-property {
+  animation: {
+    name: slideInUp;
+    duration: 2s;
+    timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    fill-mode: both;
+  }
+}
+
+// Media Query Rule
+@media (min-width: 91.5rem) {
+}
+
+@media (min-width: 73.214rem) and (max-width: 91.429rem) {
+}
+
+@media (min-width: 54.857rem) and (max-width: 73.143rem) {
+}
+
+@media (min-width: 34.357rem) and (max-width: 54.786rem) {
+}
+
+@media (max-width: 34.286rem) {
+}
+
+// common
+html,
+body,
+input,
+select,
+textarea,
+button {
+  font: {
+    size: 14px;
+    family: 'LGSmart', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  }
+  color: #111;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+}
+
+a {
+  color: #111;
+  text-decoration: none;
+
+  &:focus,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    outline-offset: 0;
+  }
+}
+
+.clear {
+  zoom: 1;
+}
+.clear::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+// form
+// select
+select {
+  width: 100%;
+  border-radius: 0;
+}
+.select {
+  &-underline {
+    position: relative;
+    border-bottom: {
+      width: 2px;
+      style: solid;
+      color: #000;
+    }
+    select {
+      padding: 0.278em 0;
+      font: {
+        size: 1.286rem;
+        weight: 600;
+      }
+    }
+    &::before {
+      @include pseudo-before;
+      $size: 0.357em;
+      top: calc(50% - #{$size});
+      right: 0.143em;
+      width: $size;
+      height: $size;
+      border: {
+        width: 0.071em 0.071em 0 0;
+        style: solid;
+        color: #000;
+      }
+      transform: rotate(135deg);
+      z-index: 9;
+    }
+  }
+}
+
+// ico
+.ico {
+  position: relative;
+
+  &-close {
+    $size: 20px;
+    height: $size;
+    width: $size;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0;
+
+    &::before,
+    &::after {
+      @include pseudo-before;
+      width: 100%;
+      height: 1px;
+      background-color: #fff;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+    &:hover::before,
+    &:hover::after {
+      height: 2px;
+    }
+  }
+}
