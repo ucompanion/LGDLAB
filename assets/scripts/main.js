@@ -240,38 +240,38 @@ function dragging(event) {
   const { clientX } = event;
 
   if (x + 20 >= clientX && clientX <= x + 40) {
-    img.src = './assets/images/intro/img2.png';
+    img.src = './../../../assets/images/intro/img2.png';
   } else if (x + 40 > clientX && clientX <= x + 60) {
-    img.src = './assets/images/intro/img3.png';
+    img.src = './../../../assets/images/intro/img3.png';
   } else if (x + 60 > clientX && clientX <= x + 80) {
-    img.src = './assets/images/intro/img4.png';
+    img.src = './../../../assets/images/intro/img4.png';
   } else if (x + 80 > clientX && clientX <= x + 100) {
-    img.src = './assets/images/intro/img5.png';
+    img.src = './../../../assets/images/intro/img5.png';
   } else if (x + 100 > clientX && clientX <= x + 120) {
-    img.src = './assets/images/intro/img6.png';
+    img.src = './../../../assets/images/intro/img6.png';
   } else if (x + 120 > clientX && clientX <= x + 140) {
-    img.src = './assets/images/intro/img7.png';
+    img.src = './../../../assets/images/intro/img7.png';
   } else if (x + 140 > clientX && clientX <= x + 160) {
-    img.src = './assets/images/intro/img8.png';
+    img.src = './../../../assets/images/intro/img8.png';
   } else if (x + 160 > clientX && clientX <= x + 180) {
-    img.src = './assets/images/intro/img9.png';
+    img.src = './../../../assets/images/intro/img9.png';
   } else if (x + 180 > clientX && clientX <= x + 200) {
-    img.src = './assets/images/intro/img10.png';
+    img.src = './../../../assets/images/intro/img10.png';
   } else if (x + 200 > clientX && clientX <= x + 220) {
-    img.src = './assets/images/intro/img11.png';
+    img.src = './../../../assets/images/intro/img11.png';
   } else if (x + 220 > clientX && clientX <= x + 240) {
-    img.src = './assets/images/intro/img12.png';
+    img.src = './../../../assets/images/intro/img12.png';
     dragFinished = true;
   } else if (x + 240 > clientX && clientX <= x + 260) {
-    img.src = './assets/images/intro/img13.png';
+    img.src = './../../../assets/images/intro/img13.png';
   } else if (x + 260 > clientX && clientX <= x + 280) {
-    img.src = './assets/images/intro/img14.png';
+    img.src = './../../../assets/images/intro/img14.png';
   } else if (x + 280 > clientX && clientX <= x + 300) {
-    img.src = './assets/images/intro/img15.png';
+    img.src = './../../../assets/images/intro/img15.png';
   } else if (x + 300 > clientX && clientX <= x + 320) {
-    img.src = './assets/images/intro/img16.png';
+    img.src = './../../../assets/images/intro/img16.png';
   } else if (x + 320 > clientX && clientX <= x + 340) {
-    img.src = './assets/images/intro/img17.png';
+    img.src = './../../../assets/images/intro/img17.png';
   }
 }
 function touchMove(event) {
@@ -279,38 +279,38 @@ function touchMove(event) {
   const { clientX } = event.changedTouches[0];
 
   if (x + 20 >= clientX && clientX <= x + 40) {
-    img.src = './assets/images/intro/img2.png';
+    img.src = './../../../assets/images/intro/img2.png';
   } else if (x + 40 > clientX && clientX <= x + 60) {
-    img.src = './assets/images/intro/img3.png';
+    img.src = './../../../assets/images/intro/img3.png';
   } else if (x + 60 > clientX && clientX <= x + 80) {
-    img.src = './assets/images/intro/img4.png';
+    img.src = './../../../assets/images/intro/img4.png';
   } else if (x + 80 > clientX && clientX <= x + 100) {
-    img.src = './assets/images/intro/img5.png';
+    img.src = './../../../assets/images/intro/img5.png';
   } else if (x + 100 > clientX && clientX <= x + 120) {
-    img.src = './assets/images/intro/img6.png';
+    img.src = './../../../assets/images/intro/img6.png';
   } else if (x + 120 > clientX && clientX <= x + 140) {
-    img.src = './assets/images/intro/img7.png';
+    img.src = './../../../assets/images/intro/img7.png';
   } else if (x + 140 > clientX && clientX <= x + 160) {
-    img.src = './assets/images/intro/img8.png';
+    img.src = './../../../assets/images/intro/img8.png';
     dragFinished = true;
   } else if (x + 160 > clientX && clientX <= x + 180) {
-    img.src = './assets/images/intro/img9.png';
+    img.src = './../../../assets/images/intro/img9.png';
   } else if (x + 180 > clientX && clientX <= x + 200) {
-    img.src = './assets/images/intro/img10.png';
+    img.src = './../../../assets/images/intro/img10.png';
   } else if (x + 200 > clientX && clientX <= x + 220) {
-    img.src = './assets/images/intro/img11.png';
+    img.src = './../../../assets/images/intro/img11.png';
   } else if (x + 220 > clientX && clientX <= x + 240) {
-    img.src = './assets/images/intro/img12.png';
+    img.src = './../../../assets/images/intro/img12.png';
   } else if (x + 240 > clientX && clientX <= x + 260) {
-    img.src = './assets/images/intro/img13.png';
+    img.src = './../../../assets/images/intro/img13.png';
   } else if (x + 260 > clientX && clientX <= x + 280) {
-    img.src = './assets/images/intro/img14.png';
+    img.src = './../../../assets/images/intro/img14.png';
   } else if (x + 280 > clientX && clientX <= x + 300) {
-    img.src = './assets/images/intro/img15.png';
+    img.src = './../../../assets/images/intro/img15.png';
   } else if (x + 300 > clientX && clientX <= x + 320) {
-    img.src = './assets/images/intro/img16.png';
+    img.src = './../../../assets/images/intro/img16.png';
   } else if (x + 320 > clientX && clientX <= x + 340) {
-    img.src = './assets/images/intro/img17.png';
+    img.src = './../../../assets/images/intro/img17.png';
   }
 }
 
@@ -318,7 +318,7 @@ function touchMove(event) {
 function dragleave() {
   if (dragFinished) {
     const img = document.getElementById('img-drag');
-    img.src = './assets/images/intro/img17.png';
+    img.src = './../../../assets/images/intro/img17.png';
     nextScene();
   }
 }
