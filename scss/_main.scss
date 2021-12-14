@@ -303,18 +303,6 @@
   cursor: image-path('cursor-drag.png'), auto !important;
 }
 
-// cinema-cursor
-// #cursor-drag {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 148px;
-//   height: 148px;
-//   display: block;
-//   background: image-path('cursor-drag.png') no-repeat left top;
-//   z-index: 9999;
-// }
-
 /* fullpage-contents */
 .fullpage {
   &-wrapper {
@@ -392,8 +380,8 @@
 #quick-menu {
   $size: 4.643rem;
   position: fixed;
-  right: $header-footer-side-padding;
-  bottom: $header-footer-side-padding;
+  right: var(--global-side-padding);
+  bottom: var(--global-side-padding);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -452,17 +440,20 @@
     right: 0;
     width: $size;
     height: $size;
-    background: {
-      image: $ico-calendar;
-      repeat: no-repeat;
-      position: center;
+    text-align: center;
+    .btn-ico {
+      display: inline-block;
+      width: 32px;
+      height: $size;
+      background: {
+        image: image-path('ico-quick-menu.png');
+        repeat: no-repeat;
+        position: 0 50%;
+        size: 64px 32px;
+      }
     }
     cursor: pointer;
     z-index: 9;
-
-    span {
-      display: none;
-    }
   }
 
   &.active {
@@ -481,8 +472,8 @@
       }
     }
 
-    .btn {
-      background-image: image-path('ico-close.png');
+    .btn-ico {
+      background-position-x: -32px;
     }
   }
 }

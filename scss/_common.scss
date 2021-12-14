@@ -28,7 +28,18 @@ $asset-base-path: './..' !default;
 }
 
 // common variable style
-$header-footer-side-padding: 4.285rem;
+//
+:root {
+  --global-side-padding: 3.125vw;
+  --header-height: 7.857rem; // 110px
+}
+// @media () {
+//   :root {
+//     --global-side-padding: 3.125vw;
+//     --header-height: 7.857rem;
+//   }
+// }
+
 $en-emphasis: 'MarkPro', sans-serif;
 
 $timing-function1: cubic-bezier(0.4, 0, 0.2, 1);
@@ -80,20 +91,32 @@ $ico-calendar: image-path('ico-calendar.png');
 }
 
 // Media Query Rule
-@media (min-width: 91.5rem) {
-}
+// @media (max-width: 480px) {
+// }
 
-@media (min-width: 73.214rem) and (max-width: 91.429rem) {
-}
+// @media (min-width: 481px) and (max-width: 767px) {
+// }
 
-@media (min-width: 54.857rem) and (max-width: 73.143rem) {
-}
+// @media (min-width: 768px) and (max-width: 1024px) {
+// }
 
-@media (min-width: 34.357rem) and (max-width: 54.786rem) {
-}
+// @media (min-width: 1025px) and (max-width: 1280px) {
+// }
 
-@media (max-width: 34.286rem) {
-}
+// @media (min-width: 1281px) {
+// }
+
+// @media #{$screen-xs} {
+//   .class-name {
+//     width: 100%;
+//   }
+// }
+
+$screen-xs: 'screen and (max-width: 480px)';
+$screen-sm: 'screen and (min-width: 481px) and (max-width: 767px)';
+$screen-md: 'screen and (min-width: 768px) and (max-width: 1024px)';
+$screen-lg: 'screen and (min-width: 1025px) and (max-width: 1280px)';
+$screen-xl: 'screen and (min-width: 1281px)';
 
 // common
 html,
@@ -202,4 +225,16 @@ select {
       height: 2px;
     }
   }
+}
+
+// gnb-container
+#gnb-container {
+  display: none;
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 9999;
 }
