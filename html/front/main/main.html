@@ -21,7 +21,7 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <link rel="stylesheet" href="./../../../assets/styles/style.css" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
     <script
       defer
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -38,20 +38,44 @@
       defer
       src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
-    <script defer src="./../../../assets/scripts/main.js"></script>
+    <script defer src="./assets/scripts/main.js"></script>
   </head>
   <body onload="init()">
     <div class="intro-container">
       <!-- header -->
       <div class="shown-bar header hidden">
-        <h1><a href="./html/front/main/main.html">LG디스커버리랩</a></h1>
-        <nav class="hamburger-menu">
+        <h1><a href="./index.html">LG디스커버리랩</a></h1>
+        <ul class="account">
+          <li><a href="#">로그인</a></li>
+          <li><a href="#">회원가입</a></li>
+        </ul>
+        <ul class="tools">
+          <li class="calendar">
+            <a href="#" title="일정"
+              ><span class="ico calendar"
+                ><span class="hidden">일정</span></span
+              ></a
+            >
+          </li>
+          <li class="search">
+            <a href="#" title="검색"
+              ><span class="ico search"
+                ><span class="hidden">검색</span></span
+              ></a
+            >
+          </li>
+        </ul>
+        <nav id="btn-gnb" class="hamburger-menu">
           <div class="top-bun"></div>
           <div class="meat"></div>
           <div class="bottom-bun"></div>
         </nav>
       </div>
       <!-- //header -->
+
+      <!-- gnb container -->
+      <div id="gnb-container">글로벌내비게이션</div>
+      <!-- //gnb container -->
 
       <!-- scene1 -->
       <section id="scene1">
@@ -62,7 +86,7 @@
         </div>
         <div class="drag-area">
           <img
-            src="./../../../assets/images/intro/img1.png"
+            src="./assets/images/intro/img1.png"
             alt="LG Discovery Lab"
             id="img-drag"
           />
@@ -131,7 +155,8 @@
       <!-- quick-menu -->
       <div id="quick-menu" style="display: none">
         <div class="btn" title="Quick-menu">
-          <span>Quick-menu</span>
+          <span class="btn-ico"></span>
+          <span class="hidden">Quick-menu</span>
         </div>
         <ul>
           <li><a href="#">서울예약</a></li>
@@ -165,7 +190,7 @@
           </p>
         </div>
         <div class="layout-half-last">
-          <img src="./../../../assets/images/img-main-program-contents.png" />
+          <img src="./assets/images/img-main-program-contents.png" />
           <p class="phrase-sub">
             청소년이 이해하고 자신의 가능성을 발견하는<br />
             <span class="text-highlight">한 차원 다른 세상</span>을 미리 경험할
@@ -197,7 +222,7 @@
               <li class="swiper-slide">
                 <div class="image">
                   <img
-                    src="./../../../assets/images/img-main-program-cinema-chatbot.jpg"
+                    src="./assets/images/img-main-program-cinema-chatbot.jpg"
                     alt=""
                   />
                 </div>
@@ -209,7 +234,7 @@
               <li class="swiper-slide">
                 <div class="image">
                   <img
-                    src="./../../../assets/images/img-main-program-cinema-robot.jpg"
+                    src="./assets/images/img-main-program-cinema-robot.jpg"
                     alt=""
                   />
                 </div>
@@ -221,7 +246,7 @@
               <li class="swiper-slide">
                 <div class="image">
                   <img
-                    src="./../../../assets/images/img-main-program-cinema-mrc.jpg"
+                    src="./assets/images/img-main-program-cinema-mrc.jpg"
                     alt=""
                   />
                 </div>

@@ -5,33 +5,19 @@
   right: 0;
   display: flex;
   justify-content: space-between;
-  background-color: transparent;
+  align-items: center;
+  max-width: 137.143rem; // 1920px
+  height: var(--header-height); // 110px
   padding: {
-    top: 3.241vh; // 2.571em
-    right: $header-footer-side-padding;
-    bottom: 12.5vh; // 9.714em
-    left: $header-footer-side-padding;
+    right: var(--global-side-padding);
+    left: var(--global-side-padding);
   }
   z-index: 99;
 
-  &-bg-white {
-    background-color: #fff;
-    animation: {
-      name: slideInDown;
-      duration: 1s;
-      timing-function: $timing-function1;
-      fill-mode: both;
-    }
-  }
-
-  &.hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-
   h1 {
-    width: 205px;
-    height: 28px;
+    width: 240px;
+    height: 50px;
+    margin-right: auto;
     background: {
       image: image-path('logo-main.png');
       repeat: no-repeat;
@@ -46,18 +32,80 @@
     }
   }
 
+  $gap: 2.143rem;
+  ul {
+    display: flex;
+
+    + ul {
+      margin-left: $gap;
+    }
+
+    li {
+      + li {
+        margin-left: $gap;
+      }
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &.account {
+      li {
+        position: relative;
+        color: #000;
+
+        a {
+          color: #000;
+        }
+
+        &:not(:first-child)::before {
+          @include pseudo-before;
+          top: 50%;
+          left: calc(#{-$gap} / 2);
+          width: 0.071rem;
+          height: 0.929em;
+          background-color: #c7c7c7;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    &.tools {
+      .ico {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: {
+          image: image-path('ico-gnb-tools.png');
+          repeat: no-repeat;
+          position: 0 0;
+          size: 100px 100px;
+        }
+        &.calendar {
+          background-position-x: 0;
+        }
+        &.search {
+          background-position-x: -50px;
+        }
+      }
+    }
+  }
+
   .hamburger-menu {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: end;
-    width: 36px;
-    height: 27px;
+    width: 30px;
+    height: 26px;
+    margin-left: $gap;
     cursor: pointer;
 
     div {
       width: 70%;
-      height: 3px;
+      height: 0.143rem;
       background-color: #121212;
       transition: {
         duration: 200ms;
@@ -93,14 +141,64 @@
     }
   }
 
+  // main
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &-bg-white {
+    background-color: #fff;
+    animation: {
+      name: slideInDown;
+      duration: 1s;
+      timing-function: $timing-function1;
+      fill-mode: both;
+    }
+  }
+
   &.page-bg-dark {
     h1 {
       background-image: image-path('logo-main-white.png');
+    }
+    ul {
+      &.account {
+        li {
+          color: #fff;
+          a {
+            color: #fff;
+          }
+        }
+      }
+      &.tools {
+        .ico {
+          background-position-y: -50px;
+        }
+      }
     }
     .hamburger-menu {
       div {
         background-color: #fff;
       }
     }
+  }
+
+  &.account-bar-blind {
+    ul {
+      &.account {
+        li {
+          &::before {
+            background-color: #000;
+          }
+        }
+      }
+    }
+  }
+}
+
+.intro-container {
+  .header {
+    height: 14.286rem;
+    padding-bottom: 6.429rem;
   }
 }
