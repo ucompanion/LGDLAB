@@ -183,6 +183,11 @@ body {
   color: #111;
 }
 
+:root {
+  --global-side-padding: 3.125vw;
+  --header-height: 7.857rem;
+}
+
 html,
 body,
 input,
@@ -291,6 +296,17 @@ select {
 
 .ico-close:hover::before, .ico-close:hover::after {
   height: 2px;
+}
+
+#gnb-container {
+  display: none;
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 9999;
 }
 
 @font-face {
@@ -628,37 +644,66 @@ select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background-color: transparent;
-  padding-top: 3.241vh;
-  padding-right: 4.285rem;
-  padding-bottom: 12.5vh;
-  padding-left: 4.285rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: var(--header-height);
+  padding-right: var(--global-side-padding);
+  padding-left: var(--global-side-padding);
+  line-height: 1;
   z-index: 99;
 }
 
-.header-bg-white {
-  background-color: #fff;
-  -webkit-animation-name: slideInDown;
-          animation-name: slideInDown;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+.header .header-infix {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  max-width: 137.143rem;
 }
 
-.header.hidden {
-  opacity: 0;
-  visibility: hidden;
+.header .header-infix > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.header .header-infix nav {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header .header-infix nav ul {
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header .header-infix nav ul li {
+  font-size: 1.286rem;
+  margin: 0;
+}
+
+.header .header-infix nav ul li a {
+  padding: 1.111em 1.444em;
 }
 
 .header h1 {
-  width: 205px;
-  height: 28px;
+  width: 240px;
+  height: 50px;
   background-image: url("./../images/logo-main.png");
   background-repeat: no-repeat;
   font-size: 0;
@@ -669,6 +714,78 @@ select {
   width: 100%;
   height: 100%;
   color: transparent;
+}
+
+.header .global-tools {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header ul + ul {
+  margin-left: 2.143rem;
+}
+
+.header ul li + li {
+  margin-left: 2.143rem;
+}
+
+.header ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header ul.account li {
+  position: relative;
+  color: #000;
+}
+
+.header ul.account li a {
+  color: #000;
+}
+
+.header ul.account li:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: calc(-2.143rem / 2);
+  width: 0.071rem;
+  height: 0.929em;
+  background-color: #c7c7c7;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.header ul.tools .ico {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url("./../images/ico-gnb-tools.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100px 100px;
+}
+
+.header ul.tools .ico.calendar {
+  background-position-x: 0;
+}
+
+.header ul.tools .ico.search {
+  background-position-x: -50px;
 }
 
 .header .hamburger-menu {
@@ -685,14 +802,17 @@ select {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
-  width: 36px;
-  height: 27px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 30px;
+  height: 26px;
+  margin-left: 2.143rem;
   cursor: pointer;
 }
 
 .header .hamburger-menu div {
   width: 70%;
-  height: 3px;
+  height: 0.143rem;
   background-color: #121212;
   -webkit-transition-duration: 200ms;
           transition-duration: 200ms;
@@ -729,12 +849,53 @@ select {
           animation-delay: 0s;
 }
 
+.header.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.header-bg-white {
+  background-color: #fff;
+  -webkit-animation-name: slideInDown;
+          animation-name: slideInDown;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
 .header.page-bg-dark h1 {
   background-image: url("./../images/logo-main-white.png");
 }
 
+.header.page-bg-dark ul.account li {
+  color: #fff;
+}
+
+.header.page-bg-dark ul.account li a {
+  color: #fff;
+}
+
+.header.page-bg-dark ul.tools .ico {
+  background-position-y: -50px;
+}
+
 .header.page-bg-dark .hamburger-menu div {
   background-color: #fff;
+}
+
+.header.account-bar-blind ul.account li::before {
+  background-color: #000;
+}
+
+.intro-container .header {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 14.286rem;
+  padding-bottom: 6.429rem;
 }
 
 .footer {
@@ -752,9 +913,9 @@ select {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 4.286rem;
-  padding-right: 4.285rem;
+  padding-right: var(--global-side-padding);
   padding-bottom: 4.286rem;
-  padding-left: 4.285rem;
+  padding-left: var(--global-side-padding);
   border-top: 1px solid #eee;
 }
 
@@ -1808,8 +1969,8 @@ select {
 
 #quick-menu {
   position: fixed;
-  right: 4.285rem;
-  bottom: 4.285rem;
+  right: var(--global-side-padding);
+  bottom: var(--global-side-padding);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1887,15 +2048,19 @@ select {
   right: 0;
   width: 4.643rem;
   height: 4.643rem;
-  background-image: url("./../images/ico-calendar.png");
-  background-repeat: no-repeat;
-  background-position: center;
+  text-align: center;
   cursor: pointer;
   z-index: 9;
 }
 
-#quick-menu .btn span {
-  display: none;
+#quick-menu .btn .btn-ico {
+  display: inline-block;
+  width: 32px;
+  height: 4.643rem;
+  background-image: url("./../images/ico-quick-menu.png");
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 64px 32px;
 }
 
 #quick-menu.active {
@@ -1923,6 +2088,6 @@ select {
           animation-delay: 0.2s;
 }
 
-#quick-menu.active .btn {
-  background-image: url("./../images/ico-close.png");
+#quick-menu.active .btn-ico {
+  background-position-x: -32px;
 }
