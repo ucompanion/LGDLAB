@@ -127,6 +127,8 @@
   }
 
   .hamburger-menu {
+    $line-thickness: 0.143rem;
+    $line-color: #000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -139,8 +141,8 @@
 
     div {
       width: 70%;
-      height: 0.143rem;
-      background-color: #121212;
+      height: $line-thickness;
+      background-color: $line-color;
       transition: {
         duration: 200ms;
         timing-function: ease-in-out;
@@ -148,9 +150,25 @@
     }
 
     .meat {
+      position: relative;
       width: 100%;
       transition: {
         duration: 400ms;
+      }
+      &:before,
+      &:after {
+        @include pseudo-before;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: $line-thickness;
+        background-color: transparent;
+        transform: translate(-50%, -50%);
+        transition: {
+          property: transform;
+          duration: 0.25s;
+          timing-function: ease-in-out;
+        }
       }
     }
 
@@ -170,6 +188,23 @@
       .meat {
         animation: {
           delay: 0s;
+        }
+      }
+    }
+
+    &.active {
+      div {
+        background-color: transparent;
+        animation: none;
+      }
+      .meat {
+        &:before {
+          background-color: $line-color;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &:after {
+          background-color: $line-color;
+          transform: translate(-50%, -50%) rotate(-45deg);
         }
       }
     }
@@ -233,7 +268,7 @@
 .intro-container {
   .header {
     justify-content: space-between;
-    height: 14.286rem;
-    padding-bottom: 6.429rem;
+    height: 18.519vh;
+    padding-bottom: 8.333vh;
   }
 }

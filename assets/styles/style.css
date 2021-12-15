@@ -813,7 +813,7 @@ select {
 .header .hamburger-menu div {
   width: 70%;
   height: 0.143rem;
-  background-color: #121212;
+  background-color: #000;
   -webkit-transition-duration: 200ms;
           transition-duration: 200ms;
   -webkit-transition-timing-function: ease-in-out;
@@ -821,9 +821,31 @@ select {
 }
 
 .header .hamburger-menu .meat {
+  position: relative;
   width: 100%;
   -webkit-transition-duration: 400ms;
           transition-duration: 400ms;
+}
+
+.header .hamburger-menu .meat:before, .header .hamburger-menu .meat:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 0.143rem;
+  background-color: transparent;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 .header .hamburger-menu:hover div {
@@ -847,6 +869,24 @@ select {
 .header .hamburger-menu:hover .meat {
   -webkit-animation-delay: 0s;
           animation-delay: 0s;
+}
+
+.header .hamburger-menu.active div {
+  background-color: transparent;
+  -webkit-animation: none;
+          animation: none;
+}
+
+.header .hamburger-menu.active .meat:before {
+  background-color: #000;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.header .hamburger-menu.active .meat:after {
+  background-color: #000;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .header.hidden {
@@ -894,8 +934,8 @@ select {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 14.286rem;
-  padding-bottom: 6.429rem;
+  height: 18.519vh;
+  padding-bottom: 8.333vh;
 }
 
 .footer {

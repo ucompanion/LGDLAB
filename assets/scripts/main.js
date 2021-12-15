@@ -185,6 +185,7 @@ function init() {
   });
 
   $('#btn-gnb').click(() => {
+    $('#btn-gnb').toggleClass('active');
     if (gnbShown) {
       $('#gnb-container').hide();
       gnbShown = false;
