@@ -196,13 +196,13 @@ textarea,
 button {
   font-size: 14px;
   font-family: 'LGSmart', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  color: #111;
+  color: #000;
   line-height: 1.2;
   letter-spacing: -0.05em;
 }
 
 a {
-  color: #111;
+  color: #000;
   text-decoration: none;
 }
 
@@ -307,6 +307,131 @@ select {
   bottom: 0;
   background-color: #fff;
   z-index: 9999;
+}
+
+#gnb-container .contents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+}
+
+#gnb-container .contents-gnb {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 4.286rem;
+  padding-right: var(--global-side-padding);
+  padding-bottom: 4.286rem;
+  padding-left: var(--global-side-padding);
+}
+
+#gnb-container .contents-gnb > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 63.571em;
+  margin-left: auto;
+}
+
+#gnb-container .contents-gnb .shortcut {
+  margin-bottom: 4.286rem;
+  padding: 1.071rem 0;
+}
+
+#gnb-container .contents-gnb .shortcut li {
+  position: relative;
+}
+
+#gnb-container .contents-gnb .shortcut li + li {
+  margin-left: 2.917em;
+}
+
+#gnb-container .contents-gnb .shortcut li a {
+  padding-right: calc(1.429rem + 0.333em);
+  font-size: 1.714rem;
+  font-weight: 700;
+}
+
+#gnb-container .contents-gnb .shortcut li a::before, #gnb-container .contents-gnb .shortcut li a::after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+#gnb-container .contents-gnb .shortcut li a::before {
+  width: 1.429rem;
+  height: 1.429rem;
+  border-radius: 50%;
+  background-color: #d5295c;
+}
+
+#gnb-container .contents-gnb .shortcut li a::after {
+  width: 1.429rem;
+  height: 1.429rem;
+  background-image: url("./../images/arrow-shortcut.png");
+  background-repeat: no-repeat;
+}
+
+#gnb-container .contents-gnb .gnb {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#gnb-container .contents-gnb .gnb > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 0.071rem solid #eaeaea;
+}
+
+#gnb-container .contents-gnb .gnb > li .depth1 {
+  font-size: 2.857rem;
+  font-weight: 600;
+}
+
+#gnb-container .contents-gnb .gnb > li ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#gnb-container .contents-image {
+  -ms-flex-preferred-size: 40.714rem;
+      flex-basis: 40.714rem;
+  width: 100%;
+  margin-left: 7.143rem;
+  border-top-left-radius: 10.714rem;
+  background-image: url("./../images/img-gnb-background.jpg");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+.intro-container #gnb-container {
+  top: 10.185vh;
 }
 
 @font-face {
@@ -750,11 +875,6 @@ select {
 
 .header ul.account li {
   position: relative;
-  color: #000;
-}
-
-.header ul.account li a {
-  color: #000;
 }
 
 .header ul.account li:not(:first-child)::before {
@@ -1695,7 +1815,7 @@ select {
   width: 0.438em;
   height: 0.438em;
   border-radius: 50%;
-  background-color: #d5194e;
+  background-color: #d5295c;
 }
 
 .branch ul li a .text .arrow::before {
@@ -2008,6 +2128,7 @@ select {
 }
 
 #quick-menu {
+  overflow: hidden;
   position: fixed;
   right: var(--global-side-padding);
   bottom: var(--global-side-padding);

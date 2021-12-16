@@ -87,11 +87,6 @@
     &.account {
       li {
         position: relative;
-        color: #000;
-
-        a {
-          color: #000;
-        }
 
         &:not(:first-child)::before {
           @include pseudo-before;
@@ -128,7 +123,6 @@
 
   .hamburger-menu {
     $line-thickness: 0.143rem;
-    $line-color: #000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -142,7 +136,7 @@
     div {
       width: 70%;
       height: $line-thickness;
-      background-color: $line-color;
+      background-color: $color-border-dark;
       transition: {
         duration: 200ms;
         timing-function: ease-in-out;
@@ -199,11 +193,11 @@
       }
       .meat {
         &:before {
-          background-color: $line-color;
+          background-color: $color-border-dark;
           transform: translate(-50%, -50%) rotate(45deg);
         }
         &:after {
-          background-color: $line-color;
+          background-color: $color-border-dark;
           transform: translate(-50%, -50%) rotate(-45deg);
         }
       }
@@ -257,7 +251,7 @@
       &.account {
         li {
           &::before {
-            background-color: #000;
+            background-color: $color-border-dark;
           }
         }
       }

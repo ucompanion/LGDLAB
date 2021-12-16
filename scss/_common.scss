@@ -42,6 +42,14 @@ $asset-base-path: './..' !default;
 
 $en-emphasis: 'MarkPro', sans-serif;
 
+$color-point: #d5295c;
+$color-text-gray: #666;
+$color-text-lgray: #999;
+$color-border: #eaeaea;
+$color-border-dark: #000;
+$color-border-form: #e5e5e5;
+$color-background: #f7f7f7;
+
 $timing-function1: cubic-bezier(0.4, 0, 0.2, 1);
 $timing-function2: cubic-bezier(0.6, 0.2, 0.6, 1);
 $timing-function3: cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -129,13 +137,13 @@ button {
     size: 14px;
     family: 'LGSmart', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   }
-  color: #111;
+  color: #000;
   line-height: 1.2;
   letter-spacing: -0.05em;
 }
 
 a {
-  color: #111;
+  color: #000;
   text-decoration: none;
 
   &:focus,
@@ -167,7 +175,7 @@ select {
     border-bottom: {
       width: 2px;
       style: solid;
-      color: #000;
+      color: $color-border-dark;
     }
     select {
       padding: 0.278em 0;
@@ -186,7 +194,7 @@ select {
       border: {
         width: 0.071em 0.071em 0 0;
         style: solid;
-        color: #000;
+        color: $color-border-dark;
       }
       transform: rotate(135deg);
       z-index: 9;
@@ -237,4 +245,110 @@ select {
   bottom: 0;
   background-color: #fff;
   z-index: 9999;
+
+  .contents {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+
+    &-gnb {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: {
+        top: 4.286rem;
+        right: var(--global-side-padding);
+        bottom: 4.286rem;
+        left: var(--global-side-padding);
+      }
+
+      > ul {
+        display: flex;
+        width: 63.571em;
+        margin-left: auto;
+      }
+
+      .shortcut {
+        margin-bottom: 4.286rem;
+        padding: 1.071rem 0;
+
+        li {
+          $size: 1.429rem;
+          position: relative;
+
+          + li {
+            margin-left: 2.917em;
+          }
+
+          a {
+            padding-right: calc(#{$size} + 0.333em);
+            font: {
+              size: 1.714rem;
+              weight: 700;
+            }
+            &::before,
+            &::after {
+              @include pseudo-before;
+              top: 50%;
+              right: 0;
+              transform: translateY(-50%);
+            }
+            &::before {
+              width: $size;
+              height: $size;
+              border-radius: 50%;
+              background-color: $color-point;
+            }
+            &::after {
+              width: $size;
+              height: $size;
+              background: {
+                image: image-path('arrow-shortcut.png');
+                repeat: no-repeat;
+              }
+            }
+          }
+        }
+      }
+      .gnb {
+        display: flex;
+        flex-direction: column;
+
+        > li {
+          display: flex;
+          flex-direction: row;
+          border-bottom: 0.071rem solid $color-border;
+
+          .depth1 {
+            font: {
+              size: 2.857rem;
+              weight: 600;
+            }
+          }
+
+          ul {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    &-image {
+      flex-basis: 40.714rem;
+      width: 100%;
+      margin-left: 7.143rem;
+      border-top-left-radius: 10.714rem;
+      background: {
+        image: image-path('img-gnb-background.jpg');
+        repeat: no-repeat;
+        position: right top;
+      }
+    }
+  }
+}
+
+.intro-container {
+  #gnb-container {
+    top: 10.185vh;
+  }
 }

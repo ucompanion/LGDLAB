@@ -35,7 +35,7 @@
     line-height: 20vh;
     text-align: center;
     text-transform: uppercase;
-    @include vendor-prefix(text-stroke, 0.008em #000);
+    @include vendor-prefix(text-stroke, 0.008em $color-border-dark);
     transition: {
       property: font-size;
       duration: 0.3s;
@@ -126,7 +126,7 @@
             width: $size;
             height: $size;
             border-radius: 50%;
-            background-color: #d5194e;
+            background-color: $color-point;
             &::before {
               @include pseudo-before;
               $size: 6px;
@@ -378,6 +378,7 @@
 
 #quick-menu {
   $size: 4.643rem;
+  overflow: hidden;
   position: fixed;
   right: var(--global-side-padding);
   bottom: var(--global-side-padding);
