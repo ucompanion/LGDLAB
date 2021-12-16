@@ -220,7 +220,11 @@
     }
   }
 
-  &.page-bg-dark {
+  &.gnb-shown {
+    background-color: #fff;
+  }
+
+  &.page-bg-dark:not(.gnb-shown) {
     h1 {
       background-image: image-path('logo-main-white.png');
     }

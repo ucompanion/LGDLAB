@@ -188,10 +188,12 @@ function init() {
     $('#btn-gnb').toggleClass('active');
     if (gnbShown) {
       $('#gnb-container').hide();
+      $('.header').removeClass('gnb-shown');
       gnbShown = false;
       $.fn.fullpage && $.fn.fullpage.setAllowScrolling(true);
     } else {
       $('#gnb-container').show();
+      $('.header').addClass('gnb-shown');
       gnbShown = true;
       $.fn.fullpage && $.fn.fullpage.setAllowScrolling(false);
     }
