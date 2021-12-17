@@ -30,12 +30,12 @@ $asset-base-path: './..' !default;
 // common variable style
 //
 :root {
-  --global-side-padding: 3.125vw;
+  --global-side-space: 3.125vw;
   --header-height: 7.857rem; // 110px
 }
 // @media () {
 //   :root {
-//     --global-side-padding: 3.125vw;
+//     --global-side-space: 3.125vw;
 //     --header-height: 7.857rem;
 //   }
 // }
@@ -60,6 +60,16 @@ $ico-calendar: image-path('ico-calendar.png');
   box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.12);
 }
 // $box-shadow-modal: 0 5px 10px 2px rgb(0, 0, 0, 0.13);
+
+@mixin text-dot($size) {
+  @include pseudo-before;
+  right: 0;
+  bottom: 0;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $color-point;
+}
 
 // half-half flex-layout
 @mixin layout-half-main {
@@ -120,11 +130,20 @@ $ico-calendar: image-path('ico-calendar.png');
 //   }
 // }
 
-$screen-xs: 'screen and (max-width: 480px)';
-$screen-sm: 'screen and (min-width: 481px) and (max-width: 767px)';
-$screen-md: 'screen and (min-width: 768px) and (max-width: 1024px)';
-$screen-lg: 'screen and (min-width: 1025px) and (max-width: 1280px)';
-$screen-xl: 'screen and (min-width: 1281px)';
+$xsmall: 'screen and (max-width: 599.98px)';
+$small: 'screen and (min-width: 600px) and (max-width: 959.98px)';
+$medium: 'screen and (min-width: 960px) and (max-width: 1279.98px)';
+$large: 'screen and (min-width: 1280px) and (max-width: 1919.98px)';
+$xlarge: 'screen and (min-width: 1920px)';
+
+$max-small: 'screen and (max-width: 959.98px)';
+$max-medium: 'screen and (max-width: 1279.98px)';
+$max-large: 'screen and (max-width: 1919.98px)';
+
+$min-small: 'screen and (min-width: 600px)';
+$min-medium: 'screen and (min-width: 960px)';
+$min-large: 'screen and (min-width: 1280px)';
+$min-xlarge: 'screen and (min-width: 1920px)';
 
 // common
 html,
@@ -237,6 +256,7 @@ select {
 
 // gnb-container
 #gnb-container {
+  overflow: auto;
   display: none;
   position: absolute;
   top: var(--header-height);
@@ -257,15 +277,15 @@ select {
       padding-left: 15.714rem;
       margin: {
         top: 4.286rem;
-        right: var(--global-side-padding);
+        right: var(--global-side-space);
         bottom: 4.286rem;
-        left: var(--global-side-padding);
+        left: var(--global-side-space);
       }
 
       > ul {
         display: flex;
-        min-width: 28.571rem;
-        max-width: 63.571rem;
+        min-width: 64.286rem;
+        max-width: 68.571rem;
       }
 
       .shortcut {
@@ -317,17 +337,74 @@ select {
         > li {
           display: flex;
           flex-direction: row;
+          align-items: center;
+          padding: 2.286em 0;
           border-bottom: 0.071rem solid $color-border;
 
           .depth1 {
+            min-width: 8.25em;
+            margin-right: 0.75em;
             font: {
               size: 2.857rem;
               weight: 600;
             }
+
+            a {
+              position: relative;
+
+              &:hover,
+              &:focus,
+              &:active {
+                color: $color-point;
+              }
+            }
           }
 
-          ul {
+          &.current {
+            .depth1 {
+              a {
+                color: $color-point;
+                &::before {
+                  @include text-dot(0.15em);
+                  right: -0.3em;
+                  bottom: 0.075em;
+                }
+              }
+            }
+          }
+
+          .depth2 {
             display: flex;
+            font: {
+              size: 1.429rem;
+            }
+
+            li:not(:last-child) {
+              margin-right: 1.5em;
+            }
+
+            a {
+              display: block;
+              color: $color-text-gray;
+
+              &:hover,
+              &:focus,
+              &:active {
+                color: $color-point;
+                text: {
+                  decoration: underline;
+                  decoration-thickness: 0.05em;
+                  underline-offset: 0.15em;
+                }
+              }
+            }
+          }
+        }
+        &:hover,
+        &:focus,
+        &:active {
+          .depth1 {
+            color: $color-point;
           }
         }
       }
@@ -351,3 +428,42 @@ select {
     top: 10.185vh;
   }
 }
+
+@media #{$max-medium} {
+  #gnb-container {
+    .contents-gnb {
+      padding-left: 7.143em;
+
+      > ul {
+        min-width: 42.857em;
+      }
+
+      .gnb {
+        > li {
+          flex-direction: column;
+          align-items: flex-start;
+
+          .depth2 {
+            flex-wrap: wrap;
+            li {
+              margin-top: 0.4em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 850px) {
+  #gnb-container {
+    .contents-gnb {
+      > ul {
+        min-width: 27.143em;
+      }
+    }
+  }
+}
+
+@media #{$xsmall} {
+}
+// gnb-container
