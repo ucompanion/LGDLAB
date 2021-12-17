@@ -18,6 +18,7 @@
     width: 100%;
     max-width: 91.429rem; // 1280px
 
+    &:nth-child(2), // temporary
     &:last-child {
       align-items: flex-end;
       margin: {
@@ -32,6 +33,29 @@
         font: {
           size: 1.429rem;
           weight: 600;
+        }
+      }
+    }
+    .footer-temporary {
+      // temporary
+      li {
+        padding: 0.357em 0;
+        color: $color-text-gray;
+
+        .divide {
+          position: relative;
+          margin-left: 0.8em;
+          padding-left: 0.75em;
+
+          &::before {
+            @include pseudo-before;
+            top: 50%;
+            left: 0;
+            width: 0.071em;
+            height: 70%;
+            background-color: #888;
+            transform: translateY(-50%);
+          }
         }
       }
     }

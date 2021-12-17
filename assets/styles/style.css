@@ -1092,7 +1092,7 @@ select {
   max-width: 91.429rem;
 }
 
-.footer-contents:last-child {
+.footer-contents:nth-child(2), .footer-contents:last-child {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -1105,6 +1105,30 @@ select {
   padding: 0.75em 0;
   font-size: 1.429rem;
   font-weight: 600;
+}
+
+.footer-contents .footer-temporary li {
+  padding: 0.357em 0;
+  color: #666;
+}
+
+.footer-contents .footer-temporary li .divide {
+  position: relative;
+  margin-left: 0.8em;
+  padding-left: 0.75em;
+}
+
+.footer-contents .footer-temporary li .divide::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 0;
+  width: 0.071em;
+  height: 70%;
+  background-color: #888;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .footer-copyright {
