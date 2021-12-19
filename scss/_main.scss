@@ -67,17 +67,14 @@
     }
     letter-spacing: -0.055em;
     line-height: 1.1em;
-    .pink-dot {
+    .text-dot {
       position: relative;
       display: inline-block;
+
       &::before {
-        @include pseudo-before;
-        $size: 0.14em;
+        @include text-dot(0.14em);
         right: -0.2em;
-        bottom: 0.24em;
-        width: $size;
-        height: $size;
-        border-radius: 50%;
+        bottom: 0.15em;
         background-color: #f61e61;
       }
     }
@@ -380,8 +377,8 @@
   $size: 4.643rem;
   overflow: hidden;
   position: fixed;
-  right: var(--global-side-padding);
-  bottom: var(--global-side-padding);
+  right: var(--global-side-space);
+  bottom: var(--global-side-space);
   display: flex;
   justify-content: space-between;
   align-items: center;

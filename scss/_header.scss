@@ -8,8 +8,8 @@
   align-items: center;
   height: var(--header-height); // 110px
   padding: {
-    right: var(--global-side-padding);
-    left: var(--global-side-padding);
+    right: var(--global-side-space);
+    left: var(--global-side-space);
   }
   line-height: 1;
   z-index: 99;
@@ -43,11 +43,12 @@
   }
 
   h1 {
-    width: 240px;
-    height: 50px;
+    width: 17.143rem;
+    height: 3.571rem;
     background: {
       image: image-path('logo-main.png');
       repeat: no-repeat;
+      position: center;
     }
     font-size: 0;
 
@@ -64,59 +65,60 @@
     justify-content: end;
   }
 
-  $gap: 2.143rem;
   ul {
     display: flex;
     align-items: center;
 
     + ul {
-      margin-left: $gap;
+      margin-left: var(--header-group-gap);
     }
 
     li {
       + li {
-        margin-left: $gap;
+        margin-left: var(--header-group-gap);
       }
       a {
-        display: block;
+        display: flex;
         width: 100%;
         height: 100%;
+        justify-content: center;
+        align-items: center;
       }
     }
+  }
 
-    &.account {
-      li {
-        position: relative;
+  .account {
+    li {
+      position: relative;
 
-        &:not(:first-child)::before {
-          @include pseudo-before;
-          top: 50%;
-          left: calc(#{-$gap} / 2);
-          width: 0.071rem;
-          height: 0.929em;
-          background-color: #c7c7c7;
-          transform: translateY(-50%);
-        }
+      &:not(:first-child)::before {
+        @include pseudo-before;
+        top: 50%;
+        left: calc(var(--header-group-gap) / -2);
+        width: 0.071rem;
+        height: 0.929em;
+        background-color: #c7c7c7;
+        transform: translateY(-50%);
       }
     }
+  }
 
-    &.tools {
-      .ico {
-        display: block;
-        width: 30px;
-        height: 30px;
-        background: {
-          image: image-path('ico-gnb-tools.png');
-          repeat: no-repeat;
-          position: 0 0;
-          size: 100px 100px;
-        }
-        &.calendar {
-          background-position-x: 0;
-        }
-        &.search {
-          background-position-x: -50px;
-        }
+  .tools {
+    .ico {
+      display: block;
+      width: var(--header-ico-size);
+      height: var(--header-ico-size);
+      background: {
+        image: image-path('ico-gnb-tools.png');
+        repeat: no-repeat;
+        position: 0 0;
+        size: 7.143rem 7.143rem;
+      }
+      &.calendar {
+        background-position-x: 0;
+      }
+      &.search {
+        background-position-x: -3.571rem;
       }
     }
   }
@@ -128,9 +130,9 @@
     justify-content: space-between;
     align-items: end;
     align-self: center;
-    width: 30px;
-    height: 26px;
-    margin-left: $gap;
+    width: var(--header-ico-size);
+    height: calc(var(--header-ico-size) * 0.8666); // 26px
+    margin-left: var(--header-group-gap);
     cursor: pointer;
 
     div {
@@ -228,19 +230,17 @@
     h1 {
       background-image: image-path('logo-main-white.png');
     }
-    ul {
-      &.account {
-        li {
+    .account {
+      li {
+        color: #fff;
+        a {
           color: #fff;
-          a {
-            color: #fff;
-          }
         }
       }
-      &.tools {
-        .ico {
-          background-position-y: -50px;
-        }
+    }
+    .tools {
+      .ico {
+        background-position-y: -3.571rem;
       }
     }
     .hamburger-menu {
@@ -251,12 +251,10 @@
   }
 
   &.account-bar-blind {
-    ul {
-      &.account {
-        li {
-          &::before {
-            background-color: $color-border-dark;
-          }
+    .account {
+      li {
+        &::before {
+          background-color: $color-border-dark;
         }
       }
     }
@@ -268,5 +266,57 @@
     justify-content: space-between;
     height: 18.519vh;
     padding-bottom: 8.333vh;
+  }
+}
+
+@media #{$xsmall} {
+  .header {
+    .global-tools,
+    ul,
+    li {
+      height: 100%;
+    }
+    h1 {
+      width: 9.429rem;
+      height: 1.571rem;
+      background-size: 9.429rem auto;
+    }
+    .tools {
+      .ico {
+        display: block;
+        width: var(--header-ico-size);
+        height: var(--header-ico-size);
+        background: {
+          image: image-path('ico-gnb-tools.png');
+          repeat: no-repeat;
+          position: 0 0;
+          size: 4.762rem 4.762rem; // 66.666%
+        }
+        &.calendar {
+          background-position-x: 0;
+        }
+        &.search {
+          background-position-x: -2.381rem;
+        }
+      }
+    }
+
+    &.page-bg-dark:not(.gnb-shown) {
+      .tools {
+        .ico {
+          background-position-y: -2.381rem;
+        }
+      }
+    }
+  }
+
+  .intro-container {
+    .header {
+      height: var(--header-height);
+      padding-bottom: 0;
+    }
+    .gnb-container {
+      top: 0;
+    }
   }
 }

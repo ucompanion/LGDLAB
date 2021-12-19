@@ -140,7 +140,7 @@
     <!-- //header -->
 
     <!-- gnb container -->
-    <div id="gnb-container">
+    <div id="gnb-container" class="gnb-container" style="display: none">
       <div class="contents">
         <div class="contents-gnb">
           <ul class="shortcut">
@@ -154,13 +154,13 @@
           <ul class="gnb">
             <li>
               <span class="depth1"><a href="#">LG디스커버리랩</a></span>
-              <ul>
+              <ul class="depth2">
                 <li><a href="#">LG디스커버리랩 소개</a></li>
               </ul>
             </li>
-            <li>
+            <li class="current">
               <span class="depth1"><a href="#">프로그램</a></span>
-              <ul>
+              <ul class="depth2">
                 <li><a href="#">교육프로그램</a></li>
                 <li><a href="#">교육이벤트</a></li>
                 <li><a href="#">전시/체험</a></li>
@@ -171,14 +171,14 @@
             </li>
             <li>
               <span class="depth1"><a href="#">예약</a></span>
-              <ul>
+              <ul class="depth2">
                 <li><a href="#">서울예약</a></li>
                 <li><a href="#">부산예약</a></li>
               </ul>
             </li>
             <li>
               <span class="depth1"><a href="#">이용안내</a></span>
-              <ul>
+              <ul class="depth2">
                 <li><a href="#">공지사항</a></li>
                 <li><a href="#">자주하는질문</a></li>
                 <li><a href="#">이용안내</a></li>
@@ -189,6 +189,92 @@
           </ul>
         </div>
         <div class="contents-image"></div>
+      </div>
+    </div>
+    <div id="gnb-container-mobile" class="gnb-container mobile">
+      <div class="contents">
+        <div class="contents-header">
+          <ul class="account">
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">회원가입</a></li>
+          </ul>
+          <div class="global-tools">
+            <ul class="tools">
+              <li class="language">
+                <a href="#">ENG</a>
+              </li>
+            </ul>
+            <button id="btn-gnb-close" class="close">
+              <span class="ico"><span class="ico-close">닫기</span></span>
+            </button>
+          </div>
+        </div>
+        <div class="contents-mymenu">
+          <ul>
+            <li>
+              <a href="#"><span class="ico reservation"></span>나의예약</a>
+            </li>
+            <li>
+              <a href="#"><span class="ico question"></span>1:1 문의</a>
+            </li>
+            <li>
+              <a href="#"><span class="ico info"></span>회원정보</a>
+            </li>
+          </ul>
+        </div>
+        <div class="contents-gnb">
+          <div class="breadcrumb-home"><a href="#">LG디스커버리랩</a></div>
+          <h2><a href="#">LG디스커버리랩</a></h2>
+          <ul class="shortcut">
+            <li>
+              <a href="#"
+                ><span>서울<br />바로가기</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><span>부산<br />바로가기</span></a
+              >
+            </li>
+          </ul>
+          <ul class="gnb">
+            <li>
+              <span class="depth1"><a href="#">LG디스커버리랩</a></span>
+              <ul class="depth2">
+                <li><a href="#">LG디스커버리랩 소개</a></li>
+              </ul>
+            </li>
+            <!-- 현재 페이지는 li에 current 붙여줌 -->
+            <li class="current">
+              <span class="depth1"><a href="#">프로그램</a></span>
+              <ul class="depth2">
+                <li><a href="#">교육프로그램</a></li>
+                <li><a href="#">교육이벤트</a></li>
+                <li><a href="#">전시/체험</a></li>
+              </ul>
+            </li>
+            <li>
+              <span class="depth1"><a href="#">교육컨텐츠</a></span>
+            </li>
+            <li>
+              <span class="depth1"><a href="#">예약</a></span>
+              <ul class="depth2">
+                <li><a href="#">서울예약</a></li>
+                <li><a href="#">부산예약</a></li>
+              </ul>
+            </li>
+            <li>
+              <span class="depth1"><a href="#">이용안내</a></span>
+              <ul class="depth2">
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">자주하는질문</a></li>
+                <li><a href="#">이용안내</a></li>
+                <li><a href="#">오시는 길</a></li>
+                <li><a href="#">채용소식</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <!-- //gnb container -->

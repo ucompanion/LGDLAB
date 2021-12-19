@@ -185,18 +185,36 @@ function init() {
   });
 
   $('#btn-gnb').click(() => {
+    const gnbId =
+      document.documentElement.clientWidth >= 600
+        ? '#gnb-container'
+        : '#gnb-container-mobile';
     $('#btn-gnb').toggleClass('active');
     if (gnbShown) {
-      $('#gnb-container').hide();
+      $(gnbId).hide();
       $('.header').removeClass('gnb-shown');
       gnbShown = false;
-      $.fn.fullpage && $.fn.fullpage.setAllowScrolling(true);
+      $.fn.fullpage &&
+        $.fn.fullpage.setAllowScrolling &&
+        $.fn.fullpage.setAllowScrolling(true);
     } else {
-      $('#gnb-container').show();
+      $(gnbId).show();
       $('.header').addClass('gnb-shown');
       gnbShown = true;
-      $.fn.fullpage && $.fn.fullpage.setAllowScrolling(false);
+      $.fn.fullpage &&
+        $.fn.fullpage.setAllowScrolling &&
+        $.fn.fullpage.setAllowScrolling(false);
     }
+  });
+
+  $('#btn-gnb-close').click(() => {
+    $('#gnb-container-mobile').hide();
+    $('#btn-gnb').removeClass('active');
+    $('.header').removeClass('gnb-shown');
+    gnbShown = false;
+    $.fn.fullpage &&
+      $.fn.fullpage.setAllowScrolling &&
+      $.fn.fullpage.setAllowScrolling(true);
   });
 }
 
