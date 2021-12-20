@@ -266,10 +266,16 @@
     justify-content: space-between;
     height: 18.519vh;
     padding-bottom: 8.333vh;
+
+    @media #{$small-height} {
+      height: var(--header-height);
+      padding-bottom: 0;
+    }
   }
 }
 
-@media #{$xsmall} {
+@media #{$xsmall + 'and' + $max-small-height} {
+  // gnb-container-mobile
   .header {
     .global-tools,
     ul,

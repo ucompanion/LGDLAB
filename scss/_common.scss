@@ -31,6 +31,9 @@ $min-medium: 'screen and (min-width: 960px)';
 $min-large: 'screen and (min-width: 1280px)';
 $min-xlarge: 'screen and (min-width: 1920px)';
 
+$max-small-height: 'screen and (min-width: 600px) and (max-height: 499.98px)';
+$small-height: 'screen and (min-width: 600px) and (min-height: 500px) and (max-height: 800px)';
+
 // Vendor-prefix
 @mixin vendor-prefix($name, $value) {
   @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
@@ -57,7 +60,12 @@ $min-xlarge: 'screen and (min-width: 1920px)';
   --header-group-gap: 2.143rem; // 30px
   --header-ico-size: 2.143rem; // 30px;
 }
-@media #{$xsmall} {
+@media #{$small-height} {
+  :root {
+    --header-height: 7.857rem;
+  }
+}
+@media #{$xsmall + 'and' + $max-small-height} {
   :root {
     --global-side-space: 1.143em;
     --header-height: 4rem; // 56px
@@ -66,6 +74,9 @@ $min-xlarge: 'screen and (min-width: 1920px)';
   }
 }
 
+// @media #{$xsmall} {
+
+// }
 $en-emphasis: 'MarkPro', sans-serif;
 
 $color-point: #d5295c;
@@ -718,6 +729,9 @@ select {
     top: 10.185vh;
     &.mobile {
       top: 0;
+    }
+    @media #{$small-height} {
+      top: var(--header-height) !important;
     }
   }
 }

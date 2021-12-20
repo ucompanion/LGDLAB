@@ -317,14 +317,18 @@
     }
     .play-button {
       transform: translate(-50%, calc(-50% - 4.63vh));
-      // top: calc(50% - 4.63vh);
       transition: transform 2s $timing-function1;
+    }
+
+    @media #{$small-height} {
+      .play-button {
+        transform: translate(-50%, calc(-50% - 3.571rem));
+      }
     }
 
     @media #{$xsmall} {
       .play-button {
         transform: translate(-50%, calc(-50% - (27.778vh - 4rem) / 2));
-        // top: calc(50% - 4.63vh);
       }
     }
   }
