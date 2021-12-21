@@ -1257,7 +1257,7 @@ select {
   height: 3.571rem;
   background-image: url("./../images/logo-main.png");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position-y: center;
   font-size: 0;
 }
 
