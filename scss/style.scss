@@ -1,10 +1,28 @@
 @charset 'utf-8';
 
-@import 'reset';
-@import 'common';
-@import 'fonts';
-@import 'animation';
-@import 'header';
-@import 'footer';
-@import 'intro';
-@import 'main';
+// base
+@import "base/reset";
+@import "base/typography";
+
+// mixin
+// @import "mixin/mixin";
+
+// layout 
+@import "layout/header";
+@import "layout/gnb";
+@import "layout/footer";
+
+// common
+@import "common/common";
+@import "common/main";
+
+// util
+@import "util/animation";
+
+// components
+
+
+// intro
+@import "intro/intro";
+
+// pages
